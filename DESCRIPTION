@@ -6,8 +6,10 @@ Date: 2024-11-25
 Authors@R: person("Kevin", "McCoy", role = c("aut", "cre"), email = "kevin@kmccoy.net")
 Description: This is a sandbox environment to learn C++ within an R package. It is not intended for production use.
 License: GPL (>= 2)
-Suggests: testthat
+Suggests: 
+    testthat (>= 3.0.0)
 Encoding: UTF-8
 RoxygenNote: 7.3.1
 Imports: Rcpp (>= 1.0.13)
 LinkingTo: Rcpp, RcppEigen
+Config/testthat/edition: 3
