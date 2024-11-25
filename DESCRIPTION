@@ -1,12 +1,12 @@
 Package: kevinRpkg
 Type: Package
-Title: Concise Summary of What the Package Does
+Title: Sandbox environment to learn C++ within an R package
 Version: 1.0
 Date: 2024-11-25
-Authors@R: person("Your", "Name", role = c("aut", "cre"), email = "your@email.com")
-Description: More about what it does (maybe more than one line).
+Authors@R: person("Kevin", "McCoy", role = c("aut", "cre"), email = "kevin@kmccoy.net")
+Description: This is a sandbox environment to learn C++ within an R package. It is not intended for production use.
 License: GPL (>= 2)
-Suggests: tinytest
+Suggests: testthat
 Encoding: UTF-8
 RoxygenNote: 7.3.1
 Imports: Rcpp (>= 1.0.13)
