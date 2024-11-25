@@ -11,6 +11,34 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
+// mvn_pdf
+double mvn_pdf(const Eigen::VectorXd& x, const Eigen::VectorXd& mu, const Eigen::MatrixXd& Sigma);
+RcppExport SEXP _kevinRpkg_mvn_pdf(SEXP xSEXP, SEXP muSEXP, SEXP SigmaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const Eigen::VectorXd& >::type x(xSEXP);
+    Rcpp::traits::input_parameter< const Eigen::VectorXd& >::type mu(muSEXP);
+    Rcpp::traits::input_parameter< const Eigen::MatrixXd& >::type Sigma(SigmaSEXP);
+    rcpp_result_gen = Rcpp::wrap(mvn_pdf(x, mu, Sigma));
+    return rcpp_result_gen;
+END_RCPP
+}
+// EM
+Rcpp::List EM(const Eigen::MatrixXd& X, const int num_groups, const int max_iter, const double eps, const int verbose);
+RcppExport SEXP _kevinRpkg_EM(SEXP XSEXP, SEXP num_groupsSEXP, SEXP max_iterSEXP, SEXP epsSEXP, SEXP verboseSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const Eigen::MatrixXd& >::type X(XSEXP);
+    Rcpp::traits::input_parameter< const int >::type num_groups(num_groupsSEXP);
+    Rcpp::traits::input_parameter< const int >::type max_iter(max_iterSEXP);
+    Rcpp::traits::input_parameter< const double >::type eps(epsSEXP);
+    Rcpp::traits::input_parameter< const int >::type verbose(verboseSEXP);
+    rcpp_result_gen = Rcpp::wrap(EM(X, num_groups, max_iter, eps, verbose));
+    return rcpp_result_gen;
+END_RCPP
+}
 // rcppeigen_hello_world
 Eigen::MatrixXd rcppeigen_hello_world();
 RcppExport SEXP _kevinRpkg_rcppeigen_hello_world() {
@@ -56,6 +84,8 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_kevinRpkg_mvn_pdf", (DL_FUNC) &_kevinRpkg_mvn_pdf, 3},
+    {"_kevinRpkg_EM", (DL_FUNC) &_kevinRpkg_EM, 5},
     {"_kevinRpkg_rcppeigen_hello_world", (DL_FUNC) &_kevinRpkg_rcppeigen_hello_world, 0},
     {"_kevinRpkg_rcppeigen_outerproduct", (DL_FUNC) &_kevinRpkg_rcppeigen_outerproduct, 1},
     {"_kevinRpkg_rcppeigen_innerproduct", (DL_FUNC) &_kevinRpkg_rcppeigen_innerproduct, 1},
